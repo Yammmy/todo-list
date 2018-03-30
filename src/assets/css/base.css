@@ -1,0 +1,22 @@
+body {
+	margin: 0 auto;
+	background-color: #fafafa;
+	font: 14px 'Helvetica Neue',
+	Helvetica,
+	Arial,
+	sans-serif;
+}
+
+h2 {
+	margin: 0 auto;
+	font-size: 12px;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+input {
+	outline: 0;
+}
