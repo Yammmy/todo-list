@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <div class="page-top">
-      <h2>任务计划列表</h2>
-    </div>
+  <div class="my-todolist">
+    <div class="big-head">
+			<div id="add-item" class="col-md-6 col-sm-10 col-xs-10">
+        <h1 class="text-center">My Todo List</h1>
+        <input type="text" class="task-input" placeholder="在这里填写一个任务，回车即可完成添加" v-model="todo" @keyup.enter="addTodo">
+			</div>
+		</div>
 
-    <div class="main">
-      <h3 class="big-title">添加任务:</h3>
-      <input type="text" class="task-input" placeholder="Add a task" v-model="todo" @keyup.enter="addTodo">
+    <div class="main col-md-6 col-sm-10 col-xs-10">
+      
       <ul class="task-count">
-        <li>{{noCheckedLength}}个任务未完成</li>
         <li class="action">
-          <button class="button" v-for="item in hashItems" :class="{active: item.isActive}" @click="handleHash(item)">{{item.title}}</button>
+          <button class="btn" v-for="item in hashItems" :class="{active: item.isActive}" @click="handleHash(item)">{{item.title}}</button>
         </li>
       </ul>
 
-      <h3 class="big-title">任务列表:</h3>
       <div class="tasks">
         <span class="no-task-tip" v-if="list.length==0">还没有添加任何任务</span>
         <ul class="todo-list">
@@ -36,6 +36,9 @@
           </li>
         </ul>
       </div>
+    </div>
+    <div class="footer">
+      Made with love by yammy
     </div>
   </div>
 </template>
@@ -125,7 +128,7 @@
       }
     },
     computed: {
-      noCheckedLength: function () {
+      undoListLength: function () {
         let count = 0
         for (let i = 0; i < this.list.length; i++) {
           if (!this.list[i].isChecked) {
@@ -159,30 +162,16 @@
 </script>
 
 <style>
-  .page-top {
-    width: 100%;
-    height: 40px;
-    background-color: #db4c3f;
+  .my-todolist {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .big-head {
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
-  .page-top h2 {
-    font-size: 18px;
-    color: #fff;
-  }
-  body {
-    margin: 0;
-    background-color: #fafafa;
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  h2 {
-    margin: 0;
-    font-size: 12px;
-  }
-  a {
-    color: #000;
-    text-decoration: none;
+    padding: 5em 0;
+    /* background-color: #f5f2f0; */
   }
   input {
     outline: 0;
@@ -193,9 +182,8 @@
     list-style: none;
   }
   .main {
-    width: 50%;
     margin: 0px auto;
-    box-sizing: border-box;
+    flex: 1;
   }
   .task-input {
     width: 99%;
@@ -219,20 +207,16 @@
     text-align: center;
     display: flex;
   }
-  .action a {
+  .action button {
     margin: 0px 10px;
     flex: 1;
     padding: 5px 0;
-    color: #777;
   }
   .action a:nth-child(3) {
     margin-right: 0;
   }
   .active {
     border: 1px solid rgba(175, 47, 47, 0.2);
-  }
-  .tasks {
-    background-color: #fff;
   }
   .no-task-tip {
     padding: 10px 0 10px 10px;
@@ -314,16 +298,6 @@
     color: #d9d9d9;
     text-decoration: line-through;
   }
-  /*.tip-toggle {
-      padding-left: 0;
-      position: relative;
-  }
-  .tip-toggle .toggle {
-      top: -2px;
-  }
-  .tip-toggle span {
-      margin-left: 45px;
-  }*/
   .todo-list li .destroy {
     display: none;
     position: absolute;
@@ -351,5 +325,11 @@
   }
   .todo-list li.editing:last-child {
     margin-bottom: -1px;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding: 2em 0;
+    background-color: #f5f2f0;
   }
 </style>

@@ -1,3 +1,3 @@
-# small-app
+# My todo list
 
-> A Vue.js project
+> A todo list implemented using Vue.js 

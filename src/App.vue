@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
-      <router-view/>
-    </div>
+    <router-view/>
   </div>
 </template>
 
@@ -13,4 +11,11 @@ export default {
 </script>
 
 <style>
+  @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+  
+  #app {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  }
+
+  color: #555;
 </style>

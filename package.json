@@ -1,5 +1,5 @@
 {
-  "name": "small-app",
+  "name": "todo-list",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "Yammy <yammyxing@foxmail.com>",
@@ -11,7 +11,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "bulma": "^0.6.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
